@@ -1,0 +1,346 @@
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.modal h2 {
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.modal p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+}
+
+#saveScoreForm {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+#playerName {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    width: 80%;
+    max-width: 300px;
+}
+
+#saveStatus {
+    margin-top: 10px;
+    min-height: 20px;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Base Styles */
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f39c12;
+    --success-color: #2ecc71;
+    --error-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --dark-color: #2c3e50;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Nunito', sans-serif;
+    background-color: #f5f7fa;
+    color: var(--dark-color);
+    line-height: 1.6;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    font-family: 'Fredoka One', cursive;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+/* Game Container */
+.game-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px dashed var(--light-color);
+}
+
+.level-info {
+    display: flex;
+    justify-content: space-around;
+    font-size: 1.2rem;
+    margin-top: 10px;
+    background-color: #f8f9fa;
+    padding: 10px;
+    border-radius: 8px;
+}
+
+/* Game Area */
+.game-area {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.numbers-display {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 25px;
+}
+
+.number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    background-color: #e8f4fd;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.factors-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 25px 0;
+    min-height: 100px;
+}
+
+.factors, .common-factors {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    min-height: 80px;
+}
+
+.common-factors {
+    background-color: #e8f5e9;
+    border: 2px dashed var(--success-color);
+}
+
+.factor {
+    background-color: var(--light-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.factor:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-3px);
+}
+
+.factor.selected {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.factor.common {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.hcf-display {
+    margin: 25px 0;
+    padding: 15px;
+    background-color: #e8f4fd;
+    border-radius: 10px;
+}
+
+.hcf-answer {
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--secondary-color);
+    margin-top: 10px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 15px;
+    margin: 25px 0;
+}
+
+.option {
+    background-color: var(--light-color);
+    border: none;
+    padding: 12px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.option:hover {
+    background-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.option.correct {
+    background-color: var(--success-color);
+    color: white;
+}
+
+.option.incorrect {
+    background-color: var(--error-color);
+    color: white;
+}
+
+/* Buttons */
+.btn {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    font-family: 'Nunito', sans-serif;
+}
+
+.btn:hover {
+    background-color: #357abd;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:disabled {
+    background-color: #bdc3c7;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Feedback */
+.feedback {
+    min-height: 30px;
+    margin: 15px 0;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.feedback.correct {
+    color: var(--success-color);
+}
+
+.feedback.incorrect {
+    color: var(--error-color);
+}
+
+/* Instructions */
+.instructions {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+
+.instructions h3 {
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.instructions ol {
+    padding-left: 20px;
+}
+
+.instructions li {
+    margin-bottom: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .game-container {
+        padding: 15px;
+    }
+    
+    .numbers-display {
+        gap: 15px;
+    }
+    
+    .number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+    
+    .options {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

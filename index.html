@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCF Hunter - Learn Highest Common Factor</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="game-container">
+        <header>
+            <h1>HCF Hunter</h1>
+            <div class="level-info">
+                <span>Level: <span id="level">1</span></span>
+                <span>Score: <span id="score">0</span></span>
+            </div>
+        </header>
+        
+        <div class="game-area">
+            <div class="numbers-display">
+                <div class="number" id="number1">24</div>
+                <div class="number" id="number2">36</div>
+            </div>
+            
+            <div class="factors-container">
+                <div class="factors" id="factors1"></div>
+                <div class="common-factors" id="common-factors"></div>
+                <div class="factors" id="factors2"></div>
+            </div>
+            
+            <div class="hcf-display">
+                <p>Find the Highest Common Factor (HCF):</p>
+                <div class="hcf-answer" id="hcf-answer">?</div>
+            </div>
+            
+            <div class="options" id="options">
+                <!-- Options will be populated by JavaScript -->
+            </div>
+            
+            <div class="feedback" id="feedback"></div>
+            
+            <button id="next-level" class="btn" disabled>Next Level</button>
+        </div>
+        
+        <div class="instructions">
+            <h3>How to Play:</h3>
+            <ol>
+                <li>Find all the factors of both numbers.</li>
+                <li>Identify the common factors.</li>
+                <li>Select the Highest Common Factor (HCF) from the options below.</li>
+            </ol>
+        </div>
+    </div>
+    
+    <script src="js/game.js"></script>
+    <script src="js/tutorial.js"></script>
+    <script src="js/factorTree.js"></script>
+    
+    <!-- Help Button -->
+    <button id="helpButton" class="help-button" title="Need help?">?</button>
+    
+    <style>
+        .help-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: all 0.3s ease;
+        }
+        
+        .help-button:hover {
+            background-color: #357abd;
+            transform: scale(1.1);
+        }
+    </style>
+    
+    <!-- Game Over Modal -->
+    <div id="gameOverModal" class="modal">
+        <div class="modal-content">
+            <h2>🎉 Congratulations! 🎉</h2>
+            <p>You've completed all levels with a final score of <span id="finalScore">0</span>!</p>
+            <div class="modal-actions">
+                <button id="saveScoreBtn" class="btn">Save My Score</button>
+                <button id="playAgainBtn" class="btn btn-secondary">Play Again</button>
+            </div>
+            <div id="saveScoreForm" class="hidden">
+                <input type="text" id="playerName" placeholder="Enter your name" maxlength="20" required>
+                <button id="submitScoreBtn" class="btn">Submit</button>
+                <p id="saveStatus"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add help button functionality
+        document.getElementById('helpButton').addEventListener('click', () => {
+            const tutorial = new Tutorial();
+            tutorial.start();
+        });
+    </script>
+</body>
+</html>
